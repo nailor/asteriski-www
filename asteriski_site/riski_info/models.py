@@ -1,6 +1,8 @@
 import tagging
 
 from django.db import models
+from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
@@ -45,6 +47,15 @@ class Message(models.Model):
         return u'[%s] %s' % (
             self.get_category_display(),
             self.title,
+            )
+
+    def mail(self):
+        to = settings.MAIL_ADDRESSES['riski-info']
+        send_mail(
+            unicode(self),
+            self.content,
+            'admin@example.com',
+            [to],
             )
 
     def save(self):

@@ -3,6 +3,7 @@ from nose.tools import eq_ as eq
 from datetime import datetime
 
 from django.conf import settings
+from django.core import mail
 from django.contrib.auth.models import User
 
 from asteriski_site.riski_info import models
@@ -64,3 +65,23 @@ def test_message_to_string():
     m.save()
 
     eq(unicode(m), u'[INFO] Newsflash!')
+
+def test_message_mail():
+    settings.MAIL_ADDRESSES = {
+        'riski-info': 'riski-info@example.com',
+        }
+    u = User(username='john')
+    u.save()
+
+    m = models.Message(
+        title='Newsflash!',
+        creator=u,
+        category=models.INFO,
+        content="News! IT'S NEWS!",
+        utu_news=False,
+        )
+    m.save()
+    m.mail()
+
+    eq(len(mail.outbox), 1)
+    eq(mail.outbox[0].subject, '[INFO] Newsflash!')
