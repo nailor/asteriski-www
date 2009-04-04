@@ -1,2 +1,15 @@
 Asteriskin webbisivut
 =====================
+
+Riippuvuudet:
+-------------
+
+- Python 2.4+
+- Django 1.0.x (Joitain ongelmia 1.0:n kanssa, 1.0.2 suositeltava)
+- Django-tagging: http://code.google.com/p/django-tagging/
+
+Testaamiseen:
+-------------
+
+- Nose http://somethingaboutorange.com/mrl/projects/nose/
+- NoseDjango http://www.assembla.com/wiki/show/nosedjango
