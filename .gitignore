@@ -6,3 +6,6 @@
 
 # Additional settings
 settings_*
+
+# test database
+test.db
