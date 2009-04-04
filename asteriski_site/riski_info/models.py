@@ -36,6 +36,11 @@ class Message(models.Model):
                                       verbose_name=_('last modified by'))
     last_modified_on = models.DateTimeField(_('last modified on'), null=True)
 
+    riski_info = models.BooleanField(_('Riski-Info'), default=True)
+    utu_news = models.BooleanField(_('utu.ilmoitustaulu.asteriski'),
+                                   default=True)
+    iki_riski = models.BooleanField(_('Iki-Riski'), default=False)
+
     def __unicode__(self):
         return u'[%s] %s' % (
             self.get_category_display(),

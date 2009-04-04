@@ -26,6 +26,9 @@ def test_create_message():
     eq(msg.created_on, datetime(1983, 11, 1))
     eq(msg.last_modifier, None)
     eq(msg.last_modified_on, None)
+    eq(msg.riski_info, True)
+    eq(msg.utu_news, True)
+    eq(msg.iki_riski, False)
 
 
 def test_modify_message():
