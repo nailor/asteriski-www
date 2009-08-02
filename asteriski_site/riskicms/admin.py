@@ -46,11 +46,11 @@ class PageAdmin(admin.ModelAdmin):
         obj.last_modified_by = request.user
         obj.save()
 
-#    class Media:
-
-#         js = (
-#             '%s/js/tinymce/jscripts/tiny_mce/tiny_mce.js' % settings.MEDIA_URL,
-#             settings.TINYMCE_CONF_URL,
-#             )
+    class Media:
+        js = (
+            '%s/tinymce/jscripts/tiny_mce/tiny_mce_popup.js' % settings.MEDIA_URL,
+            '%s/tinymce/jscripts/tiny_mce/tiny_mce.js' % settings.MEDIA_URL,
+            '%s/filebrowser/js/TinyMCEAdmin.js' % settings.MEDIA_URL,
+            )
 
 admin.site.register(Page, PageAdmin)
