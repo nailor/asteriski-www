@@ -9,3 +9,5 @@ settings_*
 
 # test database
 test.db
+
+media/uploads/*
